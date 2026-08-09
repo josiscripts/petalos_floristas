@@ -3,7 +3,8 @@ import { ArrowRight, Flower2, Star, Truck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/ProductCard";
-import { campaigns, categories, products } from "@/data/catalog";
+import { campaigns, categories, getLocalProducts } from "@/data/catalog";
+import { useProducts } from "@/hooks/useProducts";
 import { company } from "@/data/company";
 import heroImage from "@/assets/hero-bouquet.jpg";
 import aboutImage from "@/assets/sobre-nosotros.jpg";
@@ -29,7 +30,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const destacados = products.filter((p) =>
+  const { data: productsFromSupabase } = useProducts();
+  const allProducts = productsFromSupabase || getLocalProducts();
+  const destacados = allProducts.filter((p: any) =>
     ["ramo-felicidad", "ramo-girasoles", "caja-rosas-eternas", "centro-orquideas-variadas"].includes(
       p.id,
     ),

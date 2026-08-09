@@ -6,7 +6,8 @@ import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useShop } from "@/context/ShopContext";
-import { categories, products, type CategoryId } from "@/data/catalog";
+import { categories, type CategoryId, getLocalProducts } from "@/data/catalog";
+import { useProducts } from "@/hooks/useProducts";
 import { cn } from "@/lib/utils";
 
 type CatalogSearch = {
@@ -45,6 +46,9 @@ function CatalogPage() {
   const { categoria, q, favoritos } = Route.useSearch();
   const navigate = useNavigate({ from: "/catalogo" });
   const { favorites } = useShop();
+  const { data: productsFromSupabase, isLoading, error } = useProducts();
+
+  const products = productsFromSupabase || getLocalProducts();
 
   const filtered = useMemo(() => {
     const query = (q ?? "").trim().toLowerCase();
@@ -54,7 +58,25 @@ function CatalogPage() {
       if (query && !`${p.name} ${p.description}`.toLowerCase().includes(query)) return false;
       return true;
     });
-  }, [categoria, q, favoritos, favorites]);
+  }, [categoria, q, favoritos, favorites, products]);
+
+  if (isLoading) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
+        <header>
+          <p className="text-xs tracking-[0.35em] text-primary uppercase">Catálogo</p>
+          <h1 className="mt-4 font-display text-4xl sm:text-5xl">Flores, plantas y detalles</h1>
+        </header>
+        <div className="mt-10 text-center">
+          <p className="text-muted-foreground">Cargando catálogo...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    console.error("Error loading products:", error);
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">

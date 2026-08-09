@@ -4,7 +4,8 @@ import { Droplets, Gift, Sparkles, Sun } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { products } from "@/data/catalog";
+import { getLocalProducts } from "@/data/catalog";
+import { useProducts } from "@/hooks/useProducts";
 import rosasImage from "@/assets/cat-rosas-eternas.jpg";
 
 export const Route = createFileRoute("/rosas-eternas")({
@@ -50,7 +51,9 @@ const steps = [
 ];
 
 function RosasEternasPage() {
-  const eternas = products.filter((p) => p.category === "rosas-eternas");
+  const { data: productsFromSupabase, isLoading } = useProducts();
+  const allProducts = productsFromSupabase || getLocalProducts();
+  const eternas = allProducts.filter((p: any) => p.category === "rosas-eternas");
 
   return (
     <>

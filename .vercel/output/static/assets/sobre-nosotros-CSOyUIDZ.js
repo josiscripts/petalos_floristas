@@ -1,0 +1,1 @@
+var e=`/assets/sobre-nosotros-_tw3BJgB.jpg`;export{e as t};

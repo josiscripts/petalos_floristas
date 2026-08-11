@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<!-- Floral elements extracted from logo - the rose/flower monogram -->
+<path d="M 128 50 C 128 50 140 40 150 50 C 160 60 155 75 140 85 C 125 75 120 60 128 50 Z" fill="#D95A87" fill-rule="evenodd"/>
+<path d="M 128 50 C 128 50 116 40 106 50 C 96 60 101 75 116 85 C 131 75 136 60 128 50 Z" fill="#D95A87" fill-rule="evenodd"/>
+<path d="M 150 128 C 150 128 160 116 170 106 C 180 96 180 81 170 71 C 160 81 148 88 150 128 Z" fill="#D95A87" fill-rule="evenodd"/>
+<path d="M 106 128 C 106 128 96 116 86 106 C 76 96 76 81 86 71 C 96 81 108 88 106 128 Z" fill="#D95A87" fill-rule="evenodd"/>
+<path d="M 128 150 C 128 150 140 160 150 170 C 160 180 175 180 185 170 C 175 160 168 148 128 150 Z" fill="#D95A87" fill-rule="evenodd"/>
+<path d="M 128 150 C 128 150 116 160 106 170 C 96 180 81 180 71 170 C 81 160 88 148 128 150 Z" fill="#D95A87" fill-rule="evenodd"/>
+<!-- Central circle -->
+<circle cx="128" cy="128" r="35" fill="none" stroke="#D95A87" stroke-width="3"/>
+<!-- Decorative petals -->
+<path d="M 128 93 Q 135 100 128 107 Q 121 100 128 93 Z" fill="#D95A87"/>
+<path d="M 163 128 Q 156 135 149 128 Q 156 121 163 128 Z" fill="#D95A87"/>
+<path d="M 128 163 Q 121 156 128 149 Q 135 156 128 163 Z" fill="#D95A87"/>
+<path d="M 93 128 Q 100 121 107 128 Q 100 135 93 128 Z" fill="#D95A87"/>
+</svg>

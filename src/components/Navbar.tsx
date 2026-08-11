@@ -10,6 +10,7 @@ import { useShop } from "@/context/ShopContext";
 import { company } from "@/data/company";
 import { priceRangeLabel, products } from "@/data/catalog";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.svg";
 
 const navLinks = [
   { to: "/", label: "Inicio" },
@@ -63,13 +64,16 @@ export function Navbar() {
             </SheetContent>
           </Sheet>
 
-          <Link to="/" className="min-w-0 leading-none">
-            <span className="block truncate font-script text-2xl text-foreground sm:text-3xl">
-              {company.name}
-            </span>
-            <span className="mt-1 block text-[0.65rem] tracking-[0.35em] text-muted-foreground uppercase">
-              {company.tagline}
-            </span>
+          <Link to="/" className="min-w-0 leading-none flex items-center gap-2">
+            <img src={logo} alt="Logo Pétalos Floristas" className="h-12 w-auto" />
+            <div className="min-w-0">
+              <span className="block truncate font-script text-2xl text-foreground sm:text-3xl">
+                {company.name}
+              </span>
+              <span className="mt-1 block text-[0.65rem] tracking-[0.35em] text-muted-foreground uppercase">
+                {company.tagline}
+              </span>
+            </div>
           </Link>
         </div>
 

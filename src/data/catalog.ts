@@ -439,7 +439,8 @@ export function priceTiers(product: Product): { label: string; price: number }[]
   ];
 }
 
-export function formatPrice(value: number) {
+export function formatPrice(value: number | null | undefined) {
+  if (value === null || value === undefined) return "Consultar";
   return `${value.toFixed(2).replace(".", ",")} €`;
 }
 
